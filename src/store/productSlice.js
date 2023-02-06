@@ -1,6 +1,6 @@
 const { createSlice } = require("@reduxjs/toolkit");
 
-const STATUSES = Object.freeze({
+export const STATUSES = Object.freeze({
     IDEL: 'idel',
     ERROR: 'error',
     LOADING: 'loading'
@@ -16,16 +16,19 @@ const productSlice = createSlice({
         setProducts(state, action) {
             state.data = action.payload
         },
+        setStatus(state, action) {
+            state.status = action.payload
+        },
     }
 });
 
-export const { setProducts } = productSlice.actions;
+export const { setProducts, setStatus } = productSlice.actions;
 
 export default productSlice.reducer;
 
 
 // Thunks
-export function fetchProduct() {
+export function fetchProducts() {
     return async function fetchProductThunk(dispatch, getState) {
         dispatch(setStatus(STATUSES.LOADING));
 
@@ -33,8 +36,13 @@ export function fetchProduct() {
             const res = await fetch('https://fakestoreapi.com/products');
             const data = await res.json();
             dispatch(setProducts(data));
-        } catch (error) {
-
+            dispatch(setStatus(STATUSES.IDEL));
+        } catch (err) {
+            console.log(err);
+            dispatch(setStatus(STATUSES.ERROR));
         }
     }
 }
+
+// Thunk in react act as middleware
+// when we use a http request
