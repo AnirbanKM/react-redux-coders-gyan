@@ -44,5 +44,3 @@ export function fetchProducts() {
     }
 }
 
-// Thunk in react act as middleware
-// when we use a http request
