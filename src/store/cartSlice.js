@@ -10,7 +10,6 @@ const cartSlice = createSlice({
         },
         remove(state, action) {
             // product id = action.payload
-            console.log(action.payload);
             return state.filter(item => item.id !== action.payload)
         }
     }
