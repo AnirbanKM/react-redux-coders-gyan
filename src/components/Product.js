@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+
 // We need a useDispatch hook for dispatcher
 import { useDispatch, useSelector } from 'react-redux';
+
 import { add } from '../store/cartSlice';
 import { fetchProducts } from '../store/productSlice';
 import { STATUSES } from '../store/productSlice';

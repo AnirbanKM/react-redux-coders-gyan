@@ -44,3 +44,25 @@ nav ul li {
 .table th {
   vertical-align: baseline !important;
 }
+
+body {
+  transition: all 0.5s;
+}
+
+body.dark{
+  background: #1c1c1c;
+  color: #02ff49;
+}
+
+.screenMode {
+  outline: none;
+  border: navajowhite;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+.screenMode:hover,
+.screenMode:focus{
+  border: none;
+  outline: none;
+}
