@@ -66,3 +66,7 @@ body.dark{
   border: none;
   outline: none;
 }
+
+.products tfoot tr :first-child{
+  text-align: right;
+}

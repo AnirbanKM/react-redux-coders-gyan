@@ -12,6 +12,8 @@ const Cart = () => {
         dispatch(remove(productId));
     }
 
+    let total = 0;
+
     return (
         <>
             <h3>Cart</h3>
@@ -43,6 +45,22 @@ const Cart = () => {
                         ))
                     }
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colSpan='3'>
+                            Total
+                        </td>
+                        <td>
+                            {
+                                products.map(product => {
+                                    total += product.price
+                                })
+                            }
+                            {total}
+                        </td>
+                    </tr>
+                </tfoot>
+
             </table>
         </>
     )
